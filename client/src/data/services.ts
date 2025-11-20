@@ -1,4 +1,4 @@
-import { Building2, Bridge, Factory, ClipboardCheck } from 'lucide-react';
+import { Building2, Construction, Factory, ClipboardCheck } from 'lucide-react';
 
 export interface Service {
   id: string;
@@ -25,7 +25,7 @@ export const services: Service[] = [
     id: 'civil-engineering',
     title: 'Civil Engineering',
     description: 'Infrastructure development including roads, bridges, and urban development projects across Kenya.',
-    icon: Bridge,
+    icon: Construction,
     deliverables: [
       'Road construction and maintenance',
       'Bridge and overpass construction',

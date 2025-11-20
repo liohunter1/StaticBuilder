@@ -3,6 +3,7 @@ import { Link, useLocation } from 'wouter';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
+import FocusLock from 'react-focus-lock';
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -59,18 +60,23 @@ export default function Navigation() {
 
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} data-testid={`link-${link.label.toLowerCase().replace(' ', '-')}`}>
-                <a 
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    location === link.href ? 'text-primary' : 'text-foreground/80'
-                  }`}
-                >
-                  {link.label}
-                </a>
+              <Link 
+                key={link.href} 
+                href={link.href}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  location === link.href ? 'text-primary' : 'text-foreground/80'
+                }`}
+                data-testid={`link-${link.label.toLowerCase().replace(' ', '-')}`}
+              >
+                {link.label}
               </Link>
             ))}
-            <Link href="/contact" data-testid="link-quote-desktop">
-              <Button variant="default" className="bg-accent hover:bg-accent text-accent-foreground">
+            <Link href="/contact">
+              <Button 
+                variant="default" 
+                className="bg-accent hover:bg-accent text-accent-foreground"
+                data-testid="link-quote-desktop"
+              >
                 Get a Quote
               </Button>
             </Link>
@@ -104,52 +110,55 @@ export default function Navigation() {
               onClick={() => setIsMenuOpen(false)}
               aria-hidden="true"
             />
-            <motion.div 
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed top-16 left-0 right-0 bottom-0 bg-background border-t z-40 md:hidden overflow-y-auto"
-              role="dialog"
-              aria-modal="true"
-            >
-              <div className="flex flex-col p-6 gap-4">
-                {navLinks.map((link, index) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <Link href={link.href} data-testid={`link-mobile-${link.label.toLowerCase().replace(' ', '-')}`}>
-                      <a 
+            <FocusLock disabled={!isMenuOpen} returnFocus>
+              <motion.div 
+                initial={{ x: '100%' }}
+                animate={{ x: 0 }}
+                exit={{ x: '100%' }}
+                transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+                className="fixed top-16 left-0 right-0 bottom-0 bg-background border-t z-40 md:hidden overflow-y-auto"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Mobile navigation menu"
+              >
+                <div className="flex flex-col p-6 gap-4">
+                  {navLinks.map((link, index) => (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <Link 
+                        href={link.href}
                         onClick={() => setIsMenuOpen(false)}
                         className={`text-lg font-medium block py-3 transition-colors hover:text-primary ${
                           location === link.href ? 'text-primary' : 'text-foreground/80'
                         }`}
+                        data-testid={`link-mobile-${link.label.toLowerCase().replace(' ', '-')}`}
                       >
                         {link.label}
-                      </a>
+                      </Link>
+                    </motion.div>
+                  ))}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: navLinks.length * 0.1 }}
+                  >
+                    <Link href="/contact" data-testid="link-quote-mobile">
+                      <Button 
+                        variant="default" 
+                        className="w-full mt-4 bg-accent hover:bg-accent text-accent-foreground"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        Get a Quote
+                      </Button>
                     </Link>
                   </motion.div>
-                ))}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: navLinks.length * 0.1 }}
-                >
-                  <Link href="/contact" data-testid="link-quote-mobile">
-                    <Button 
-                      variant="default" 
-                      className="w-full mt-4 bg-accent hover:bg-accent text-accent-foreground"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Get a Quote
-                    </Button>
-                  </Link>
-                </motion.div>
-              </div>
-            </motion.div>
+                </div>
+              </motion.div>
+            </FocusLock>
           </>
         )}
       </AnimatePresence>

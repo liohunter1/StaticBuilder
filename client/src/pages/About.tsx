@@ -3,6 +3,7 @@ import Footer from '@/components/Footer';
 import { Award, Target, Shield, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { usePageMeta } from '@/hooks/usePageMeta';
 
 const values = [
   {
@@ -28,6 +29,13 @@ const values = [
 ];
 
 export default function About() {
+  usePageMeta({
+    title: 'About Us - Esteel Construction Ltd | Leading Contractors Since 1998',
+    description: 'Learn about Esteel Construction Ltd, a UN-registered Class 1 Contractor with 25+ years of excellence. Discover our story, values, and commitment to quality construction in Kenya.',
+    ogTitle: 'About Esteel Construction - Building Excellence Since 1998',
+    ogDescription: 'Leading Kenya\'s construction industry with integrity, innovation, and excellence. From Cedar Mall to Mi Vida Homes, our portfolio speaks to our expertise.'
+  });
+
   return (
     <div className="min-h-screen">
       <Navigation />

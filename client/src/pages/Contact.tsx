@@ -2,6 +2,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { MapPin, Phone, Clock, Mail } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { usePageMeta } from '@/hooks/usePageMeta';
 
 const contactInfo = [
   {
@@ -29,6 +30,13 @@ const contactInfo = [
 ];
 
 export default function Contact() {
+  usePageMeta({
+    title: 'Contact Us - Get a Quote | Esteel Construction Ltd Nairobi',
+    description: 'Contact Esteel Construction Ltd for your construction project. Located at 17 Busia Rd, Industrial Area, Nairobi. Call 0114 098438 or email info@esteelconstruction.co.ke for quotes and consultations.',
+    ogTitle: 'Contact Esteel Construction - Get Started on Your Project',
+    ogDescription: 'Get in touch with our expert construction team in Nairobi. We\'re here to help bring your vision to life with professional guidance and competitive quotes.'
+  });
+
   return (
     <div className="min-h-screen">
       <Navigation />

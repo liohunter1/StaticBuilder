@@ -4,8 +4,16 @@ import { services } from '@/data/services';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
+import { usePageMeta } from '@/hooks/usePageMeta';
 
 export default function ServicesPage() {
+  usePageMeta({
+    title: 'Construction Services - General Contracting & Civil Engineering | Esteel',
+    description: 'Comprehensive construction services including General Building Works, Civil Engineering, Project Management, and Design-Build solutions. Expert contractors serving Nairobi and Kenya.',
+    ogTitle: 'Construction Services - Esteel Construction Ltd',
+    ogDescription: 'From general contracting to civil engineering and project management, we deliver construction solutions tailored to your needs with expertise and precision.'
+  });
+
   return (
     <div className="min-h-screen">
       <Navigation />

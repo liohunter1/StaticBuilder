@@ -5,8 +5,16 @@ import { projects, type Project } from '@/data/projects';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import ProjectModal from '@/components/ProjectModal';
+import { usePageMeta } from '@/hooks/usePageMeta';
 
 export default function Portfolio() {
+  usePageMeta({
+    title: 'Portfolio - Our Projects | Esteel Construction Ltd Kenya',
+    description: 'Explore Esteel Construction\'s portfolio of landmark projects across Kenya including Cedar Mall (Sh1.3bn), Mi Vida Homes (Sh12bn), UN Office Blocks, and more commercial, residential, and institutional developments.',
+    ogTitle: 'Construction Portfolio - Multi-Billion Shilling Projects in Kenya',
+    ogDescription: 'From commercial complexes to luxury residential developments, explore our track record of delivering landmark projects that have shaped Kenya\'s skyline.'
+  });
+
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [filter, setFilter] = useState<string>('All');
 
