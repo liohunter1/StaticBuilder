@@ -1,0 +1,200 @@
+ROLE & GOAL
+You are an expert Senior Frontend Developer and UI/UX Designer. Build a full, production-ready, single-repository React app (Vite) for a corporate construction firm named "Esteel Construction Ltd". Deliver the entire app in one run: all source files, proper file structure, build scripts, README, and instructions so the site can be run locally and deployed. The app must be fully responsive, accessible, and visually polished.
+
+TECH STACK (required)
+- React (Vite)
+- Tailwind CSS (configured)
+- Framer Motion for animations
+- Lucide React for icons
+- Fonts: Inter (body) and Oswald (headings)
+- Use Unsplash placeholders for imagery (construction, cranes, steel structure)
+- Local mock contact API (Node/Express or a serverless function stub) that returns success/failure JSON
+- Use environment variables for any keys (but use placeholders)
+
+PROJECT CONSTRAINTS (must follow)
+- Single-run deliverable: produce a working app repository (src, public, package.json, tailwind.config.cjs, vite.config.ts, README.md).
+- Use Tailwind utility classes — no external UI libraries other than lucide & framer-motion.
+- All pages must be accessible (keyboard navigation, semantic HTML, aria attributes).
+- Mobile-first responsive design, optimized for Nairobi users first (fast, low-bandwidth friendly).
+- No copyrighted images — use Unsplash placeholders and include direct image URLs or instructions to fetch them.
+- Use the provided real business data (below) exactly where relevant.
+
+BUSINESS DATA (use exactly)
+Name: Esteel Construction Ltd
+Address: 17 Busia Rd, Industrial Area, Nairobi, Kenya
+Phone: 0114 098438
+Plus Code: MRQW+CM Nairobi
+Established: 1998
+Rating: 4.4/5
+Status: UN-registered vendor, Class 1 Building Works Contractor
+Notable Projects: Cedar Mall (Nanyuki) - Sh1.3bn, Mi Vida Homes (Garden City) - Sh12bn, UNON Office Blocks expansion, School Lane Offices (Westlands)
+
+BRAND & DESIGN RULES
+- Logo: text-based "ESTEEL" (Oswald, uppercase, bold). If an image not available, use styled text.
+- Color palette:
+  - Primary: Deep Industrial Blue — #1e3a8a
+  - Secondary: Steel Grey — #475569
+  - Accent: Safety Orange — #f97316
+  - Neutral backgrounds: #f8fafc / #f1f5f9 where needed
+- Typography:
+  - Headings: Oswald
+  - Body: Inter
+- Vibe: corporate, sturdy, authoritative. Minimalist, grid-based, lots of white/negative space. Avoid playful elements.
+- Buttons: primary CTA uses Safety Orange with subtle shadow and hover scale up. Primary actions use orange, secondary uses deep blue.
+- Use Framer Motion for entrance animations and smooth transitions (hero, project cards, mobile menu).
+
+SITE MAP & ROUTES
+- / (Home)
+- /about
+- /services
+- /portfolio
+- /contact
+- /api/contact (POST) — mocked backend endpoint returning JSON success or validation errors
+
+NAVIGATION (desktop + mobile)
+- Logo left, links: Home, About Us, Services, Portfolio, Contact
+- CTA button "Get a Quote" on nav (accent, visible on desktop; in mobile menu as primary action)
+- Mobile hamburger -> accessible menu with focus trap; closing uses ESC or backdrop click
+
+HERO SECTION (home)
+- Headline: "Building Kenya's Future Since 1998."
+- Subheadline: "Premier General Contractors & Civil Engineering Experts in Nairobi."
+- Visual: full-width background image (Unsplash-style construction crane / steel structure). Apply dark gradient overlay so white heading remains legible.
+- Buttons: Primary "View Our Projects" (scrolls to Projects) and Secondary "Contact Us" (navigates to /contact)
+- Small trust row under hero: badge icons + short text "UN-registered vendor • Class 1 Contractor • 25+ Years Experience • 4.4/5"
+
+ABOUT SECTION
+- Short company history paragraph using supplied facts: established 1998, multi-billion shilling projects, safety & timely delivery.
+- Key stats row (cards): "25+ Years Experience", "4.4/5 Client Rating", "Class 1 Contractor", "UN-registered vendor".
+- CTA: "Download Company Profile" (a placeholder .pdf link or button that downloads a generated sample PDF).
+
+SERVICES SECTION (cards with icons)
+Provide 4 service cards. Each card:
+- Icon (Lucide)
+- Title
+- Short description (2-3 lines)
+- Hover effect: subtle lift and reveal a micro-list of example deliverables
+Services required:
+1. General Contracting — commercial & residential.
+2. Civil Engineering — roads, bridges, infrastructure.
+3. Steel Structures — fabrication & erection of warehouses.
+4. Project Management — end-to-end supervision (Design-Build).
+
+FEATURED PROJECTS (grid)
+- Use the real project names exactly: Cedar Mall (Nanyuki), Mi Vida Homes (Garden City), UNON Office Blocks, School Lane Offices.
+- Grid layout: responsive (1 col mobile, 2-3 cols tablet/desktop)
+- Card contents: project title, location, short one-line descriptor, approximate value if available (e.g. "Sh1.3bn"), project type tag (Commercial / Residential / Institutional).
+- Interaction: hover shows overlay with more details (location + type) and a "View Case Study" button that opens a modal with a larger simulated gallery (Unsplash images), project description, role of Esteel, timelines, and key deliverables.
+- Use lazy-loading for images.
+
+TRUST & REVIEWS
+- "Trusted By" logo strip (UN, Mi Vida, Cedar Mall placeholders)
+- One testimonials carousel with 3 testimonials (short, authoritative). Show rating stars (4.4/5).
+- Include a short quote: "Excellent services. We have earned a good reputation through delivering quality projects."
+
+CONTACT PAGE & FOOTER
+- Left column: Contact details (Address, Phone, Hours: Closed · Opens 8 am Fri). Plus Code and small map placeholder (div with background image and text "Map: MRQW+CM Nairobi").
+- Right column: functional-looking contact form: fields Name, Email, Phone (optional), Project Type (select), Message, Consent checkbox "I agree to be contacted regarding my enquiry".
+- Form behavior:
+  - Client-side validation (required fields, email format).
+  - On submit: POST to /api/contact (mock). Show success toast or inline message, handle server validation errors.
+  - For demo, the server returns success immediately for valid payload and returns 400 with JSON errors if missing required fields.
+- Footer: Copyright 2025 Esteel Construction Ltd, quick links, social icons (LinkedIn, Facebook). Emphasize accessibility (aria-labels).
+
+MOBILE UX
+- Mobile-first: large tappable buttons, optimized nav, images responsive, collapse long text.
+- Ensure CTA "Get a Quote" is visible at top and sticky on mobile as a floating bottom CTA on scroll (optional but recommended).
+
+PERFORMANCE & ACCESSIBILITY
+- Use optimized images (Unsplash small sizes for mobile).
+- Add meta tags for SEO: title, description, canonical, open graph tags (use company facts).
+- Lighthouse targets: keep CSS small, preconnect to fonts, reduce initial JS to what’s necessary.
+- Accessibility: semantic header/landmark elements, alt tags on all images, aria-labels for buttons, keyboard navigable modals and menus, color contrast above WCAG AA for text.
+
+CODE STRUCTURE & NAMING (explicit)
+Provide these files and folders (example):
+- package.json (scripts: dev, build, preview, lint)
+- vite.config.ts
+- tailwind.config.cjs + postcss.config.cjs
+- src/
+  - main.jsx
+  - App.jsx
+  - index.css (Tailwind imports)
+  - components/
+    - Navbar.jsx
+    - Hero.jsx
+    - About.jsx
+    - Services.jsx
+    - ProjectsGrid.jsx
+    - ProjectModal.jsx
+    - Testimonials.jsx
+    - ContactForm.jsx
+    - Footer.jsx
+    - IconButton.jsx
+    - MapPlaceholder.jsx
+    - MobileMenu.jsx
+  - pages/
+    - Home.jsx
+    - About.jsx
+    - Services.jsx
+    - Portfolio.jsx
+    - Contact.jsx
+  - utils/
+    - api.js (fetch wrapper)
+    - validators.js
+  - data/
+    - projects.js (contains the four project objects and data)
+  - assets/
+    - images placeholders or instructions to fetch from Unsplash
+- server/
+  - contact-server.js (simple Express server or serverless function stub that handles POST /api/contact returning JSON)
+- README.md with instructions to run: npm install, npm run dev, and an optional deploy section (Vercel/Netlify suggestions)
+
+IMPLEMENTATION DETAILS (behavior expectations)
+- Navigation: On click of “View Our Projects” hero button, smooth-scroll to featured projects section.
+- Modals: Project case study open in accessible modal with focus trap and ESC to close.
+- Animations: Use Framer Motion for reveal on scroll and hover micro-animations. Keep animations subtle and optional toggle via reduced-motion media query.
+- Form: POST to /api/contact, show loading state, success alert, and clear fields on success. On failure, highlight fields and show returned messages.
+- Map placeholder: Provide a div with a styled mock map and the Plus Code; include instructions in README about how to replace with a Google Maps iframe (API key placeholder).
+- Images: include sample Unsplash URLs and recommended sizes (mobile 640w, tablet 1024w, desktop 1920w).
+
+SEO & META (include)
+- Title for homepage: "Esteel Construction Ltd — General Contractors & Civil Engineering | Nairobi"
+- Meta description: "Esteel Construction Ltd — Class 1 contractor and UN-registered vendor based in Nairobi. Building Kenya's future since 1998. Contact: 0114 098438."
+- Open Graph tags with sample image URL.
+
+TESTS & LINTING
+- Add basic ESLint + Prettier config (recommended) — include scripts but you can skip exhaustive tests. Provide at least one simple unit test example (Jest + React Testing Library) for the ContactForm behavior (validates required fields).
+
+README (must include)
+- Project summary
+- Tech stack
+- How to run locally (dev, build, preview)
+- How to mock/replace contact API with real endpoint
+- How to swap Unsplash images and add Google Maps API key
+- Accessibility & performance notes
+
+DELIVERABLE FORMAT & INSTRUCTIONS FOR BOLT
+- Output everything in a single repository structure. Show file names, their paths, and full file contents for each file (or provide a downloadable zip).
+- If Bolt can produce a repository ZIP, produce it. If Bolt only outputs generated code, place each file with its exact path and contents in the response.
+- Ensure any environment variables (e.g., CONTACT_EMAIL or MAP_API_KEY) are referenced via .env placeholders, and included .env.example.
+
+EXAMPLE UI COPY (use exactly where needed)
+- Nav CTA: "Get a Quote"
+- Hero H1: "Building Kenya's Future Since 1998."
+- Hero sub: "Premier General Contractors & Civil Engineering Experts in Nairobi."
+- Project call-to-action: "View Case Study"
+- Contact button: "Get a Quote" / "Send Message"
+- Footer copyright: "© 2025 Esteel Construction Ltd"
+
+ADDITIONAL NOTES FOR QUALITY
+- Provide accessible color tokens in tailwind.config so designers can change colors quickly.
+- Use CSS variables for the three main colors.
+- Provide a production-ready Tailwind configuration (purge paths, dark mode optional).
+- Keep initial bundle small: code-split modals and project images where appropriate.
+- Provide clear comments in code for where to replace placeholders (images, map key, real API endpoint).
+
+FINAL REMARK
+If any server code is included, make it minimal and documented — the frontend must be able to run and demonstrate all UI behaviors without a production backend. If the platform requires an interactive demo, include instructions for running the mock server (node server/contact-server.js) and call the endpoint at /api/contact.
+
+--- END PROMPT ---
