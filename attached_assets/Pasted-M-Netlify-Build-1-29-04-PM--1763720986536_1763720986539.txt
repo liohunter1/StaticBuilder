@@ -1,0 +1,51 @@
+M: Netlify Build                                                 
+1:29:04 PM: ────────────────────────────────────────────────────────────────
+1:29:04 PM: ​
+1:29:04 PM: ❯ Version
+1:29:04 PM:   @netlify/build 35.4.0
+1:29:04 PM: ​
+1:29:04 PM: ❯ Flags
+1:29:04 PM:   accountId: 692037efe4b5ef1631a12651
+1:29:04 PM:   baseRelDir: true
+1:29:04 PM:   buildId: 69203ee5fe6114a0c0d209b8
+1:29:04 PM:   deployId: 69203ee5fe6114a0c0d209ba
+1:29:04 PM: ​
+1:29:04 PM: ❯ Current directory
+1:29:04 PM:   /opt/build/repo
+1:29:04 PM: ​
+1:29:04 PM: ❯ Config file
+1:29:04 PM:   No config file was defined: using default values.
+1:29:04 PM: ​
+1:29:04 PM: ❯ Context
+1:29:04 PM:   production
+1:29:04 PM: ​
+1:29:04 PM: Build command from Netlify app                                
+1:29:04 PM: ────────────────────────────────────────────────────────────────
+1:29:04 PM: ​
+1:29:04 PM: $ npm run build
+1:29:04 PM: > rest-express@1.0.0 build
+1:29:04 PM: > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+1:29:04 PM: sh: 1: vite: not found
+1:29:04 PM: ​
+1:29:04 PM: "build.command" failed                                        
+1:29:04 PM: ────────────────────────────────────────────────────────────────
+1:29:04 PM: ​
+1:29:04 PM:   Error message
+1:29:04 PM:   Command failed with exit code 127: npm run build (https://ntl.fyi/exit-code-127)
+1:29:04 PM: ​
+1:29:04 PM:   Error location
+1:29:04 PM:   In Build command from Netlify app:
+1:29:04 PM:   npm run build
+1:29:04 PM: ​
+1:29:04 PM:   Resolved config
+1:29:04 PM:   build:
+1:29:04 PM:     command: npm run build
+1:29:04 PM:     commandOrigin: ui
+1:29:04 PM:     environment:
+1:29:04 PM:       - NODE_ENV
+1:29:04 PM:     publish: /opt/build/repo/dist
+1:29:04 PM:     publishOrigin: ui
+1:29:05 PM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+1:29:05 PM: Build failed due to a user error: Build script returned non-zero exit code: 2
+1:29:05 PM: Failing build: Failed to build site
+1:29:05 PM: Finished processing build request in 10.004s
